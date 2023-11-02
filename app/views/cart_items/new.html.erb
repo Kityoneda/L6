@@ -1,0 +1,12 @@
+<h1>CartItems#new</h1>
+<%= form_with model: @cartitem, local: true do |f| %>
+
+  <%= Product.find(@cartitem.product_id).name %>
+  <%= Product.find(@cartitem.product_id).price %>
+  <%= f.label 'qty' %>
+  <%= f.number_field :qty, in: 1..10, step: 1 %>
+
+
+  <%= f.hidden_field :product_id %>
+  <%= f.submit "購入" %>
+<% end %>
